@@ -67,6 +67,10 @@ def convert_json_to_yolo(src_labels_dir, tar_labels_dir, src_image_width = 1280,
                 w *= (1.0 / tar_image_width)
                 h *= (1.0 / tar_image_height) 
 
+                # ignore very small objects
+                if w < (1 / float(tar_image_width)) or h < (1 / float(tar_image_height)):
+                    continue
+
                 # add center_x, center_y, width, height of the bounding box to a temporary list
                 tar_vertices.append(c_x)
                 tar_vertices.append(c_y)
