@@ -29,6 +29,10 @@ def convert_json_to_yolo(src_labels_dir, tar_labels_dir, src_image_width = 1280,
     # list all files in the source label directory
     src_labels_list = os.listdir(src_labels_dir) 
 
+    # create target directory if it doesn't exist
+    if not os.path.exists(tar_labels_dir):
+        os.makedirs(tar_labels_dir)
+
     # set the appropriate delimiter
     if delimiter == ',':
         tar_file_format = '.csv'
