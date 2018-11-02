@@ -85,14 +85,14 @@ def convert_json_to_yolo(src_labels_dir, tar_labels_dir, src_image_width = 1280,
                 target_labels.append([category] + tar_vertices)
 
         # convert and save the array in the specified format
-        np.savetxt(os.path.join(tar_labels_dir, json_file.split('.')[0] + tar_file_format), np.array(target_labels), fmt = ['%d', '%.8f', '%.8f', '%.8f', '%.8f'],delimiter = delimiter)
+        np.savetxt(os.path.join(tar_labels_dir, json_file.split('.')[0] + tar_file_format), np.array(target_labels), fmt = ['%d', '%.8f', '%.8f', '%.8f', '%.8f'], delimiter = delimiter)
 
 def main():
     # default values
     src_image_width = 1280
     src_image_height = 720
-    tar_image_width = 416
-    tar_image_height = 416
+    tar_image_width = 608
+    tar_image_height = 608
 
     src_labels_dir = '/data/data/datasets/berkeley_deep_drive/object_detection/labels/val/'
     tar_labels_dir = '/data/data/datasets/berkeley_deep_drive/object_detection/labels/val_resized/'
